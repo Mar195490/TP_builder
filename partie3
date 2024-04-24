@@ -1,0 +1,25 @@
+public class Main {
+    public static void main(String[] args) {
+        // Création d'une commande de café avec lait et sucre en utilisant le builder
+        CoffeeOrder coffeeOrder1 = new CoffeeOrderBuilder("Espresso")
+                                    .withMilk(true)
+                                    .withSugar(true)
+                                    .build();
+
+        // Création d'une autre commande de café sans lait et avec sucre
+        CoffeeOrder coffeeOrder2 = new CoffeeOrderBuilder("Cappuccino")
+                                    .withSugar(true)
+                                    .build();
+
+        // Affichage des détails des commandes de café créées
+        System.out.println("Commande 1:");
+        System.out.println("Type de café: " + coffeeOrder1.getCoffeeType());
+        System.out.println("Avec lait: " + coffeeOrder1.isWithMilk());
+        System.out.println("Avec sucre: " + coffeeOrder1.isWithSugar());
+
+        System.out.println("\nCommande 2:");
+        System.out.println("Type de café: " + coffeeOrder2.getCoffeeType());
+        System.out.println("Avec lait: " + coffeeOrder2.isWithMilk());
+        System.out.println("Avec sucre: " + coffeeOrder2.isWithSugar());
+    }
+}
