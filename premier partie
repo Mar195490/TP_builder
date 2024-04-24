@@ -1,0 +1,57 @@
+public class CoffeeOrder {
+    private final String coffeeType;
+    private final boolean withMilk;
+    private final boolean withSugar;
+    // Ajoutez d'autres attributs au besoin
+
+    // Constructeur privé pour empêcher l'instanciation directe de la classe
+    private CoffeeOrder(Builder builder) {
+        this.coffeeType = builder.coffeeType;
+        this.withMilk = builder.withMilk;
+        this.withSugar = builder.withSugar;
+        // Initialisez d'autres attributs au besoin
+    }
+
+    // Getters pour les attributs
+    public String getCoffeeType() {
+        return coffeeType;
+    }
+
+    public boolean isWithMilk() {
+        return withMilk;
+    }
+
+    public boolean isWithSugar() {
+        return withSugar;
+    }
+
+    // Classe Builder interne pour construire une commande de café
+    public static class Builder {
+        private final String coffeeType;
+        private boolean withMilk = false; // Valeur par défaut
+        private boolean withSugar = false; // Valeur par défaut
+        // Ajoutez d'autres attributs au besoin
+
+        // Constructeur avec les paramètres obligatoires
+        public Builder(String coffeeType) {
+            this.coffeeType = coffeeType;
+        }
+
+        // Méthodes de configuration pour les options de la commande de café
+        public Builder withMilk(boolean withMilk) {
+            this.withMilk = withMilk;
+            return this;
+        }
+
+        public Builder withSugar(boolean withSugar) {
+            this.withSugar = withSugar;
+            return this;
+        }
+        // Ajoutez d'autres méthodes de configuration au besoin
+
+        // Méthode pour construire l'objet CoffeeOrder
+        public CoffeeOrder build() {
+            return new CoffeeOrder(this);
+        }
+    }
+}
