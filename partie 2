@@ -1,0 +1,28 @@
+public class CoffeeOrderBuilder {
+    private String coffeeType;
+    private boolean withMilk;
+    private boolean withSugar;
+    // Ajoutez d'autres attributs au besoin
+
+    // Constructeur avec les paramètres obligatoires
+    public CoffeeOrderBuilder(String coffeeType) {
+        this.coffeeType = coffeeType;
+    }
+
+    // Méthodes de configuration pour les options de la commande de café
+    public CoffeeOrderBuilder withMilk(boolean withMilk) {
+        this.withMilk = withMilk;
+        return this;
+    }
+
+    public CoffeeOrderBuilder withSugar(boolean withSugar) {
+        this.withSugar = withSugar;
+        return this;
+    }
+    // Ajoutez d'autres méthodes de configuration au besoin
+
+    // Méthode pour construire l'objet CoffeeOrder
+    public CoffeeOrder build() {
+        return new CoffeeOrder(this);
+    }
+}
